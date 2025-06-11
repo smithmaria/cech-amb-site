@@ -1,8 +1,8 @@
 import logo from '/CECH-Logo.png';
 import './Home.css';
-import ambGroup from '../assets/images/ambassadors-group.png';
-import headshot from '../assets/images/maria-headshot.jpg';
-import bingo from '../assets/images/bingo.jpg';
+import ambGroup from '../../assets/images/ambassadors-group.png';
+import headshot from '../../assets/images/maria-headshot.jpg';
+import bingo from '../../assets/images/bingo.jpg';
  
  const Home = () => {
   return (

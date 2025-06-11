@@ -1,10 +1,10 @@
 import './App.css';
 import Layout from './components/layout/Layout';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Events from './pages/Events';
-import Members from './pages/Members';
-import Apply from './pages/Apply';
+import Home from './pages/Home/Home';
+import Events from './pages/Events/Events';
+import Members from './pages/Members/Members';
+import Apply from './pages/Apply/Apply';
 
 function App() {
 
