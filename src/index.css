@@ -5,8 +5,11 @@
   --title-font: 'Garet', Arial, sans-serif;
   --text-font: 'HeliosExtended', sans-serif;
   --text-color: #000000;
+  --text-alternate: #373737;
 
   --primary-white: #f3f3f3;
+  --primary-white-dark-1: #ebebeb;
+  --primary-white-dark-2: #e5e5e5;
   --primary-red: #a12537;
   --primary-red-dark: #781a28;
 }
@@ -57,4 +60,17 @@ body {
 h1 {
   font-family: 'HeliosExtended';
   font-weight: bold;
+}
+
+.button {
+  padding: .5rem 1rem;
+  text-decoration: none;
+  color: var(--primary-white);
+  background-color: var(--primary-red);
+  transition: .1s;
+
+  &:hover {
+    background-color: var(--primary-red-dark);
+    cursor: pointer;
+  }
 }

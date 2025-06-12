@@ -50,19 +50,6 @@
   margin-top: 2rem;
   width: 100%;
   flex-wrap: wrap;
-
-  a {
-    padding: .5rem 1rem;
-    font-family: 'Garet';
-    text-decoration: none;
-    color: var(--primary-white);
-    background-color: var(--primary-red);
-    transition: .1s;
-  }
-
-  a:hover {
-    background-color: var(--primary-red-dark);
-  }
 }
 
 .contact {

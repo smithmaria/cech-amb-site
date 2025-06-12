@@ -25,10 +25,10 @@ import bingo from '../../assets/images/bingo.jpg';
             Student Ambassadors create a positive and lasting impression thus enhancing the reputation of the college and university.
           </p>
           <div className='buttons'>
-            <a href='/apply'>
+            <a className='button' href='/apply'>
               Apply
             </a>
-            <a href='https://forms.office.com/Pages/ResponsePage.aspx?id=bC4i9cZf60iPA3PbGCA7Y_ItKi-BGElEjSj8Bm-kciVUNTZPRzdJSURPSjJMOTUzOENHRUhTUlhRSC4u' target='_blank' rel='noopener'>
+            <a className='button' href='https://forms.office.com/Pages/ResponsePage.aspx?id=bC4i9cZf60iPA3PbGCA7Y_ItKi-BGElEjSj8Bm-kciVUNTZPRzdJSURPSjJMOTUzOENHRUhTUlhRSC4u' target='_blank' rel='noopener'>
               Request Ambassadors
             </a>
           </div>
