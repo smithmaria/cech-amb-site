@@ -53,7 +53,7 @@ const Events = () => {
   );
 
   return (
-    <div className='events-page'>
+    <div className='page'>
       <div>
         <div className='events-title'>
           <h1>Events</h1>

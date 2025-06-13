@@ -11,6 +11,7 @@
   --primary-white-dark-1: #ebebeb;
   --primary-white-dark-2: #e5e5e5;
   --primary-red: #a12537;
+  --primary-red-transparent: #a125380c;
   --primary-red-dark: #781a28;
 }
 
@@ -57,6 +58,10 @@ body {
   margin: 0;
 }
 
+.page {
+  padding: 2rem 4rem;
+}
+
 h1 {
   font-family: 'HeliosExtended';
   font-weight: bold;
@@ -73,4 +78,38 @@ h1 {
     background-color: var(--primary-red-dark);
     cursor: pointer;
   }
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  border: 2px solid var(--primary-red);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  transition: .1s;
+
+  &:hover {
+    background-color: var(--primary-red-transparent);
+  }
+}
+
+.contact-item img {
+  margin: 1.5rem 2rem;
+  width: 5rem;
+  border-radius: 50%;
+}
+
+.contact-item a {
+  color: var(--primary-red);
+
+  &:hover {
+    color: var(--primary-red-dark);
+  }
+}
+
+.contact-name {
+  margin-bottom: .2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }

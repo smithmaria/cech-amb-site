@@ -15,13 +15,20 @@ export const formatEventTime = (startTimeTimestamp, endTimeTimestamp) => {
   const endTime = endTimeTimestamp.toDate();
   
   const startHour = startTime.getHours();
+  const startMinutes = startTime.getMinutes();
   const endHour = endTime.getHours();
+  const endMinutes = endTime.getMinutes();
   const endPeriod = endHour >= 12 ? 'pm' : 'am';
   
   const formatHour = (hour) => hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+  const formatTime = (hour, minutes) => {
+    const formattedHour = formatHour(hour);
+    return minutes === 0 ? formattedHour : `${formattedHour}:${minutes.toString().padStart(2, '0')}`;
+  };
   
-  const startFormatted = formatHour(startHour);
-  const endFormatted = formatHour(endHour);
+  const startFormatted = formatTime(startHour, startMinutes);
+  const endFormatted = formatTime(endHour, endMinutes);
   
   return `${startFormatted}-${endFormatted}${endPeriod}`;
-};
+ };
+ 

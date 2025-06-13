@@ -38,10 +38,6 @@
   font-family: var(--text-font);
 }
 
-.events-page {
-  padding: 2rem 4rem;
-}
-
 .events-table {
   width: 100%;
 }

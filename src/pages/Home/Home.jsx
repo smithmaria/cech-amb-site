@@ -39,7 +39,7 @@ import bingo from '../../assets/images/bingo.jpg';
       <div className='contact'>
         <h1>Contact</h1>
         <div className='contact-container'>
-          <div className='contact-item'>
+          <div className='contact-item' style={{width: '48%'}}>
             <img src={headshot} alt='headshot' />
             <div>
               <div className='contact-name'>Maria Smith</div>
@@ -47,7 +47,7 @@ import bingo from '../../assets/images/bingo.jpg';
               <a href='mailto:smit9mt@mail.uc.edu'>smit9mt@mail.uc.edu</a>
             </div>
           </div>
-          <div className='contact-item'>
+          <div className='contact-item' style={{width: '48%'}}>
             <img src={bingo} alt='headshot' />
             <div>
               <div className='contact-name'>Haley Fletcher</div>
