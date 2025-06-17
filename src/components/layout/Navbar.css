@@ -10,9 +10,15 @@
 
 .navbar-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 64px;
   overflow: hidden;
+}
+
+.navbar-pages {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-logo {
@@ -41,4 +47,8 @@
   width: 90%;
   height: 3px;
   background-color: var(--primary-red);
+}
+
+.navbar-login {
+  margin-right: 1rem;
 }

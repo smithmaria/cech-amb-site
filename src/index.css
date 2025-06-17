@@ -73,6 +73,8 @@ h1 {
   color: var(--primary-white);
   background-color: var(--primary-red);
   transition: .1s;
+  border: none;
+  font-family: var(--text-font);
 
   &:hover {
     background-color: var(--primary-red-dark);
@@ -83,7 +85,8 @@ h1 {
 .contact-item {
   display: flex;
   align-items: center;
-  width: 30%;
+  margin-bottom: 1rem;
+  width: 450px;
   border: 2px solid var(--primary-red);
   font-size: 1rem;
   line-height: 1.5rem;
@@ -112,4 +115,93 @@ h1 {
   margin-bottom: .2rem;
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+/* Base profile icon styles */
+.profile-icon {
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.profile-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-icon-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+/* Size variants */
+.profile-icon-small {
+  width: 32px;
+  height: 32px;
+}
+
+.profile-icon-small .profile-icon-placeholder svg {
+  width: 18px;
+  height: 18px;
+}
+
+.profile-icon-medium {
+  width: 48px;
+  height: 48px;
+}
+
+.profile-icon-medium .profile-icon-placeholder svg {
+  width: 24px;
+  height: 24px;
+}
+
+.profile-icon-large {
+  width: 80px;
+  height: 80px;
+}
+
+.profile-icon-large .profile-icon-placeholder svg {
+  width: 40px;
+  height: 40px;
+}
+
+.profile-icon-xlarge {
+  width: 120px;
+  height: 120px;
+}
+
+.profile-icon-xlarge .profile-icon-placeholder svg {
+  width: 60px;
+  height: 60px;
+}
+
+/* Border styles */
+.profile-icon.with-border {
+  border: 2px solid #e0e0e0;
+}
+
+.profile-icon.with-border.profile-icon-small {
+  border-width: 1px;
+}
+
+/* Clickable styles */
+.profile-icon.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-icon.clickable:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

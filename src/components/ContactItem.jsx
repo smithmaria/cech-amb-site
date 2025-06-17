@@ -11,7 +11,7 @@ const ContactItem = ({user, isExec}) => {
       <div>
         <div className='contact-name'>{`${user.firstName} ${user.lastName}`}</div>
         {isExec ?
-          <div>{user.execPosition}</div>
+          <div>{user.position}</div>
           : null
         }
         <div><i>{user.generalMajor?.join(', ')}</i></div>

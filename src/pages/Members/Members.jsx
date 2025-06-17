@@ -5,13 +5,15 @@ import { db } from '../../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import ContactItem from '../../components/ContactItem';
 
+const USERS_COLLECTION = import.meta.env.VITE_USERS_COLLECTION || 'users';
+
 const Members = () => {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const membersRef = collection(db, 'users');
+        const membersRef = collection(db, USERS_COLLECTION);
         const q = query(membersRef, where('isMember', '==', true));
         const snapshot = await getDocs(q);
         const membersData = snapshot.docs.map(doc => ({
