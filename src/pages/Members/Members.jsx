@@ -1,50 +1,79 @@
 import './Members.css';
-import headshot from '../../assets/images/maria-headshot.jpg';
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import ContactItem from '../../components/ContactItem';
+import Loading from '../../components/Loading';
 
 const USERS_COLLECTION = import.meta.env.VITE_USERS_COLLECTION || 'users';
 
 const Members = () => {
   const [members, setMembers] = useState([]);
+  const [execMembers, setExecMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchMembers = async () => {
       try {
+        setLoading(true);
         const membersRef = collection(db, USERS_COLLECTION);
-        const q = query(membersRef, where('isMember', '==', true));
-        const snapshot = await getDocs(q);
-        const membersData = snapshot.docs.map(doc => ({
+
+        const membersQuery = query(
+          membersRef,
+          where('isMember', '==', true),
+          where('isExec', '==', false)
+        );
+        const membersSnapshot = await getDocs(membersQuery);
+        const membersData = membersSnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
         }));
-        
-        console.log('users');
-        console.log(membersData);
+
+        const execQuery = query(
+          membersRef,
+          where('isMember', '==', true),
+          where('isExec', '==', true)
+        );
+        const execSnapshot = await getDocs(execQuery);
+        const execData = execSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
         setMembers(membersData);
+        setExecMembers(execData);
       } catch (error) {
         console.error('Error fetching users:', error);
+      } finally {
+        setLoading(false);
       }
     };
   
     fetchMembers();
   }, []);
 
+  if (loading) {
+    return (
+      <Loading />
+    );
+  }
+
   return (
     <div className='page'>
       <h1>Exec Board</h1>
-      <div className='member-list'>
-        <div className='contact-item'>
-          <img src={headshot} alt='headshot' />
-          <div>
-            <div className='contact-name'>Maria Smith</div>
-            <div><i>President</i></div>
-            <a href='mailto:smit9mt@mail.uc.edu'>smit9mt@mail.uc.edu</a>
-          </div>
-        </div>
-      </div>
+        {execMembers.length === 0 ? (
+              <div>No executive members to show</div>
+            ) : (
+              <div className='member-list'>
+                {execMembers.map(exec => (
+                  <ContactItem 
+                    user={exec}
+                    isExec={true}
+                  />
+                ))}
+              </div>
+            )
+        }
       <h1 style={{marginTop: '5rem'}}>Members</h1>
       {members.length === 0 ? (
             <div>No members to show</div>

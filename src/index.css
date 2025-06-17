@@ -97,7 +97,7 @@ h1 {
   }
 }
 
-.contact-item img {
+.contact-item .profile-icon {
   margin: 1.5rem 2rem;
   width: 5rem;
   border-radius: 50%;

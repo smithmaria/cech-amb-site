@@ -1,13 +1,14 @@
-import bingo from '../assets/images/bingo.jpg';
+import ProfileIcon from './ProfileIcon';
 
 const ContactItem = ({user, isExec}) => {
-  console.log('member from item');
-  console.log(user);
-  console.log(user.firstName);
-
   return (
     <div className='contact-item'>
-      <img src={bingo} alt='headshot' />
+      <ProfileIcon
+        src={user.profilePictureURL}
+        alt="headshot"
+        size="large"
+        showBorder={false}
+      />
       <div>
         <div className='contact-name'>{`${user.firstName} ${user.lastName}`}</div>
         {isExec ?
