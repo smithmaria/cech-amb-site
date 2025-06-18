@@ -1,15 +1,7 @@
 import { formatEventDate, formatEventTime } from "../utils/dateUtils";
 import { useNavigate } from "react-router-dom";
 
-const EventsTable = ({ events, loading}) => {
-  if (loading) {
-    return (
-      <div className='loading-container'>
-        <div className='spinner'></div>
-        <span>Loading events...</span>
-      </div>
-    );
-  }
+const EventsTable = ({ events }) => {
 
   const navigate = useNavigate();
 
@@ -40,7 +32,7 @@ const EventsTable = ({ events, loading}) => {
             <div style={{width: '16%'}}>{formatEventTime(event.startTime, event.endTime)}</div>
             <div style={{width: '24%'}}>{event.location}</div>
             <div style={{width: '10%'}}>
-              {event.attendees ? event.attendees.length : 0}
+              {event.attendeeList ? event.attendeeList.length : 0}
               {event.attendeeLimit && `/${event.attendeeLimit}`}
             </div>
           </div>          

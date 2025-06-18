@@ -10,16 +10,10 @@ import { logoutUser } from '../../services/userService';
 
 const Navbar = () => {
 	const { currentUser } = useAuth();
-	console.log('current user');
-	console.log(currentUser);
-	console.log(JSON.stringify(currentUser, null, 2));
-	console.log('Profile picture URL:', currentUser?.profilePictureURL);
 	const currentPath = window.location.pathname;
 	const navigate = useNavigate();
   const [showAuthModal, setShowAuthModal] = useState(false);
 	const [showSettings, setShowSettings] = useState(false);
-
-	console.log();
 
 	return (
 		<nav className='navbar'>

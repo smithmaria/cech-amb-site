@@ -3,6 +3,9 @@ import { db } from '../../firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import EventsTable from '../../components/EventsTable';
+import Loading from '../../components/Loading';
+
+const EVENTS_COLLECTION = import.meta.env.VITE_EVENTS_COLLECTION || 'events';
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -13,7 +16,7 @@ const Events = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const eventsRef = collection(db, 'events');
+        const eventsRef = collection(db, EVENTS_COLLECTION);
         const q = query(eventsRef, orderBy('startTime', 'asc')); 
         const snapshot = await getDocs(q);
         const eventsData = snapshot.docs.map(doc => ({
@@ -52,6 +55,12 @@ const Events = () => {
     event.endTime && event.endTime.toDate() <= now
   );
 
+  if (loading) {
+    return (
+      <Loading />
+    );
+  }
+
   return (
     <div className='page'>
       <div>
@@ -74,7 +83,6 @@ const Events = () => {
         </div>
         <EventsTable 
           events={futureEvents}
-          loading={loading}
         />
       </div>
       
@@ -98,7 +106,6 @@ const Events = () => {
         </div>
         <EventsTable 
           events={pastEvents}
-          loading={false}
         />
       </div>
     </div>

@@ -91,7 +91,7 @@
     color: var(--text-alternate);
   }
 
-  &:hover {
+  div:hover, img:hover {
     cursor: pointer;
   }
 }
@@ -144,4 +144,15 @@
   div {
     margin-left: 1rem;
   }
+}
+
+.attendees-list {
+  height: 35rem;
+  overflow-y: auto;
+  overflow-x: visible;
+  color: var(--text-alternate);
+}
+
+.attendees-list .contact-item {
+  width: 94%;
 }
