@@ -31,11 +31,10 @@ const Navbar = () => {
 						<ProfileIcon
 						src={currentUser?.profilePictureURL}
 						size="medium"
-						onClick={logoutUser}
+						onClick={() => setShowSettings(true)}
 						className="navbar-profile-icon"
 					/>
 						: (
-
 							<button className='button' onClick={() => setShowAuthModal(true)}>Sign In</button>
 						)
 					}
@@ -43,6 +42,7 @@ const Navbar = () => {
 				<SettingsModal 
 					isOpen={showSettings}
 					onClose={() => setShowSettings(false)}
+					currentUser={currentUser}
 				/>
 				<AuthModal 
 					isOpen={showAuthModal} 

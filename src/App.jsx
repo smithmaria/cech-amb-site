@@ -8,6 +8,7 @@ import EventDetails from './pages/Events/EventDetails';
 import Members from './pages/Members/Members';
 import Apply from './pages/Apply/Apply';
 import CreateAccount from './pages/LogIn/CreateAccount';
+import AccountInfo from './pages/AccountInfo/AccountInfo';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/events/:eventId" element={<EventDetails />} />
               <Route path="/members" element={<Members />} />
               <Route path="/apply" element={<Apply />} />
+              <Route path="/account" element={<AccountInfo />} />
             </Routes>
           </Layout>
         } />
