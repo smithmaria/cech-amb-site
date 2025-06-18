@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import ProfileIcon from '../ProfileIcon';
 import AuthModal from '../../pages/LogIn/AuthModal';
 import SettingsModal from './SettingsModal';
-import { logoutUser } from '../../services/userService';
 
 const Navbar = () => {
 	const { currentUser } = useAuth();

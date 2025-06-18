@@ -1,7 +1,16 @@
-import { MdOutlineAccountBox, MdOutlineAdminPanelSettings } from "react-icons/md";
+import { MdOutlineAccountBox, MdOutlineAdminPanelSettings, MdLogout } from "react-icons/md";
 import ProfileIcon from "../ProfileIcon";
+import { logoutUser } from '../../services/userService';
+import { useNavigate } from "react-router-dom";
 
 const SettingsModal = ({ isOpen, onClose, currentUser }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    onClose();
+    navigate(`/`);
+    logoutUser();
+  };
 
   return (
     <>
@@ -29,12 +38,12 @@ const SettingsModal = ({ isOpen, onClose, currentUser }) => {
         <div className="settings-modal-profile">
           <div className="settings-modal-profile-content">
             <ProfileIcon 
-              src={currentUser.profilePictureURL}
+              src={currentUser?.profilePictureURL}
               size="medium"
             />
             <div className="settings-modal-profile-info">
-              <h3>{currentUser.firstName} {currentUser.lastName}</h3>
-              <p>{currentUser.isAdmin ? 'Administrator' : 'Member'}</p>
+              <h3>{currentUser?.firstName} {currentUser?.lastName}</h3>
+              <p>{currentUser?.isAdmin ? 'Administrator' : 'Member'}</p>
             </div>
           </div>
         </div>
@@ -51,7 +60,7 @@ const SettingsModal = ({ isOpen, onClose, currentUser }) => {
               <span className="settings-modal-nav-text">Account Info</span>
             </a>
 
-            {currentUser.isAdmin && (
+            {currentUser?.isAdmin && (
               <a
                 href="/admin"
                 className="settings-modal-nav-link settings-modal-nav-link--admin"
@@ -62,6 +71,14 @@ const SettingsModal = ({ isOpen, onClose, currentUser }) => {
                 <span className="settings-modal-nav-text">Admin Panel</span>
               </a>
             )}
+
+            <a className="settings-modal-nav-link settings-modal-nav-link--logout" onClick={handleLogout} >
+              <span className="settings-modal-nav-icon">
+                <MdLogout size={30} />
+              </span>
+              <span className="settings-modal-nav-text">Logout</span>
+            </a>
+
           </nav>
         </div>
       </div>
