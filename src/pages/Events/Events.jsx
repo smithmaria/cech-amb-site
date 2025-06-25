@@ -24,8 +24,6 @@ const Events = () => {
           ...doc.data()
         }));
         
-        console.log('events');
-        console.log(eventsData);
         setEvents(eventsData);
       } catch (error) {
         console.error('Error fetching events:', error);

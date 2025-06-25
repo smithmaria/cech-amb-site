@@ -34,9 +34,6 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
-  console.log('set the auth state object');
-  console.log(currentUser);
-
   const value = {
     currentUser
   };

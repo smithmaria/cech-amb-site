@@ -9,6 +9,7 @@ import Members from './pages/Members/Members';
 import Apply from './pages/Apply/Apply';
 import CreateAccount from './pages/LogIn/CreateAccount';
 import AccountInfo from './pages/AccountInfo/AccountInfo';
+import AdminLayout from './pages/Admin/AdminLayout';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
               <Route path="/members" element={<Members />} />
               <Route path="/apply" element={<Apply />} />
               <Route path="/account" element={<AccountInfo />} />
+              <Route path="/admin" element={<AdminLayout />} />
             </Routes>
           </Layout>
         } />

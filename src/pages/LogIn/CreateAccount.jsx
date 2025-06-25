@@ -499,7 +499,7 @@ function CreateAccount() {
               </div>
 
               <div className="input-group">
-                <label>Minor(s) (Optional)</label>
+                <label>Minor(s)</label>
                 <input
                   type="text"
                   value={formData.minor}
@@ -523,7 +523,7 @@ function CreateAccount() {
               </div>
 
               <div className="input-group">
-                <label>Student Organization Involvement (Optional)</label>
+                <label>Student Organization Involvement</label>
                 <textarea
                   value={formData.orgs}
                   onChange={(e) => handleInputChange('orgs', e.target.value)}
@@ -576,7 +576,7 @@ function CreateAccount() {
               )}
 
               <div className="input-group">
-                <label>Do you have any certificates or similar accomplishments?</label>
+                <label>Do you have any certificates?</label>
                 <div className="radio-group">
                   <label className="radio-label">
                     <input
@@ -652,6 +652,12 @@ function CreateAccount() {
             <div className="form-section">
               <h1 className="page-title">Review Your Information</h1>
               
+              {submitError && (
+              <div className="error-message" style={{marginBottom: '1rem', textAlign: 'center'}}>
+                {submitError}
+              </div>
+            )}
+
               <div className="review-section">
                 <h3>Personal Information</h3>
 
@@ -674,6 +680,12 @@ function CreateAccount() {
                   <span className="review-label">Email:</span>
                   <span>{formData.email}</span>
                 </div>
+                {accountType === 'admin' && (
+                  <div className="review-item">
+                    <span className="review-label">Position:</span>
+                    <span>{formData.position}</span>
+                  </div>
+                )}
                 {accountType === 'member' && formData.isExec && (
                   <div className="review-item">
                     <span className="review-label">Executive Position:</span>
@@ -755,12 +767,6 @@ function CreateAccount() {
               currentStep === steps.length - 1 ? 'Create Account' : 'Next'}
             </button>
             </div>
-
-            {submitError && (
-              <div className="error-message" style={{marginTop: '1rem', textAlign: 'center'}}>
-                {submitError}
-              </div>
-            )}
         </div>
       </div>
     </div>

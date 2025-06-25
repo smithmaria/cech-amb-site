@@ -38,38 +38,15 @@
   font-family: var(--text-font);
 }
 
-.events-table {
-  width: 100%;
-}
-
 .no-events {
   margin: 2rem 0;
   text-align: center;
   width: 100%;
-  color: var(--text-alternate);
-}
-
-.table-header {
-  background-color: var(--primary-white-dark-2);
-  font-weight: bold;
-}
-
-.table-row {
-  display: flex;
-  padding: .6rem;
-
-  div {
-    text-align: left;
-  }
+  color: var(--text-gray-1);
 }
 
 .event-row {
-  border-top: 1.5px solid var(--primary-white-dark-2);
-
-  &:hover {
-    background-color: var(--primary-white-dark-1);
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 
 /* Event Details */
@@ -88,7 +65,7 @@
     margin-top: 3px;
     margin-left: .5rem;
     font-style: italic;
-    color: var(--text-alternate);
+    color: var(--text-gray-1);
   }
 
   div:hover, img:hover {
@@ -150,7 +127,7 @@
   height: 35rem;
   overflow-y: auto;
   overflow-x: visible;
-  color: var(--text-alternate);
+  color: var(--text-gray-1);
 }
 
 .attendees-list .contact-item {
