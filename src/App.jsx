@@ -1,7 +1,8 @@
 import { AuthProvider } from './contexts/AuthContext';
+import { Routes, Route } from 'react-router-dom';
+import ProtectedAdminRoute from './components/ProtectedAdminRoute';
 import './App.css';
 import Layout from './components/layout/Layout';
-import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Events from './pages/Events/Events';
 import EventDetails from './pages/Events/EventDetails';
@@ -27,7 +28,14 @@ function App() {
               <Route path="/members" element={<Members />} />
               <Route path="/apply" element={<Apply />} />
               <Route path="/account" element={<AccountInfo />} />
-              <Route path="/admin" element={<AdminLayout />} />
+              <Route 
+                path="/admin" 
+                element={
+                  <ProtectedAdminRoute>
+                    <AdminLayout />
+                  </ProtectedAdminRoute>
+                } 
+              />
             </Routes>
           </Layout>
         } />

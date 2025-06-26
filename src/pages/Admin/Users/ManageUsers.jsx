@@ -81,6 +81,12 @@ const ManageUsers = () => {
   const handleDeleteSelected = async () => {
     setActionLoading(true);
 
+    if (!currentUser.isAdmin) {
+      toast.error('Must be an admin to delete users.');
+      setActionLoading(false);
+      return;
+    } 
+
     if (selectedUsers.has(currentUser.uid)) {
       toast.error('Unable to delete your own account. Please ask another admin to remove your account if needed.');
       setActionLoading(false);
@@ -110,6 +116,12 @@ const ManageUsers = () => {
 
   const handleApproveSelected = async () => {
     setActionLoading(true);
+
+    if (!currentUser.isAdmin) {
+      toast.error('Must be an admin to approve users.');
+      setActionLoading(false);
+      return;
+    }
 
     try {
       const updatePromises = Array.from(selectedUsers).map(userId => {

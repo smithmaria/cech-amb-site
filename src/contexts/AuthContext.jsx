@@ -18,13 +18,19 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const userDoc = await getDoc(doc(db, USERS_COLLECTION, user.uid));
-        const profileData = userDoc.exists() ? userDoc.data() : {};
+        try {
+          const userDoc = await getDoc(doc(db, USERS_COLLECTION, user.uid));
+          const profileData = userDoc.exists() ? userDoc.data() : {};
+  
+          setCurrentUser({
+            ...user,
+            ...profileData
+          });
+        } catch (error) {
+          console.error("Error fetching user profile:", error);
+          setCurrentUser(user);
+        }
 
-        setCurrentUser({
-          ...user,
-          ...profileData
-        });
       } else {
         setCurrentUser(null);
       }
@@ -35,12 +41,13 @@ export function AuthProvider({ children }) {
   }, []);
 
   const value = {
-    currentUser
+    currentUser,
+    loading
   };
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 }
