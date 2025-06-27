@@ -10,6 +10,7 @@ import Loading from '../../components/Loading';
 import ConfirmAttendance from './ConfirmAttendance';
 import ContactItem from '../../components/ContactItem';
 import AuthModal from '../LogIn/AuthModal';
+import ConfirmationModal from '../../components/ConfirmationModal';
 
 const EVENTS_COLLECTION = import.meta.env.VITE_EVENTS_COLLECTION || 'events';
 const USERS_COLLECTION = import.meta.env.VITE_USERS_COLLECTION || 'users';
@@ -74,8 +75,20 @@ const EventDetails = () => {
     }
   };
 
+  const isUserSignedUp = event?.attendeeList?.includes(currentUser?.uid);
+  const isEventFull = !isUserSignedUp && event?.attendeeLimit && event.attendeeList?.length >= event.attendeeLimit;
+
+  const confirmationTitle = !currentUser?.isApproved ? 'Approval Required' : isUserSignedUp ? 'Remove RSVP' : 'Confirm RSVP';
+  const confirmationDesc = !currentUser?.isApproved ? 'Your account must be approved to sign up for events. Approval status can be found on your account info page.' : null;
+  const confirmationConfirm = !currentUser?.isApproved ? 'Account Info' : isUserSignedUp ? 'Remove' : 'Confirm';
+
   const handleConfirm = async () => {
     if (!currentUser) {
+      return;
+    }
+
+    if (!currentUser.isApproved) {
+      navigate('/account');
       return;
     }
 
@@ -114,9 +127,6 @@ const EventDetails = () => {
   if (!event) {
     return <div>Event not found</div>;
   }
-
-  const isUserSignedUp = event?.attendeeList?.includes(currentUser?.uid);
-  const isEventFull = !isUserSignedUp && event.attendeeLimit && event.attendeeList?.length >= event.attendeeLimit;
 
   return (
     <>
@@ -173,12 +183,21 @@ const EventDetails = () => {
                 ))
               )}
             </div>
-
+{/* 
             <ConfirmAttendance
               isOpen={showConfirmModal}
               onClose={() => setShowConfirmModal(false)}
               onConfirm={handleConfirm}
               isUserSignedUp={isUserSignedUp}
+            /> */}
+
+            <ConfirmationModal 
+              isOpen={showConfirmModal}
+              onClose={() => setShowConfirmModal(false)}
+              title={confirmationTitle}
+              description={confirmationDesc}
+              confirmLabel={confirmationConfirm}
+              onConfirm={handleConfirm}
             />
           </div>
         </div>

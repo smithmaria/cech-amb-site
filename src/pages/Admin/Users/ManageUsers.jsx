@@ -181,6 +181,7 @@ const ManageUsers = () => {
                   setEmailBody('');
                   setShowMessageModal(true)
                 }}
+                title="Message"
               />
               <MdOutlineDelete 
                 size={26}
@@ -194,12 +195,24 @@ const ManageUsers = () => {
                   setModalConfirm(() => handleDeleteSelected);
                   setShowConfirmationModal(true);
                 }}
+                title="Delete"
               />
 
             </div> 
           ) : selectedUsers.size > 0 && activeFilter === 'pending' ? (
             <div className="selected-actions-pending">
               <div>{selectedUsers.size} selected</div>
+              <div 
+                className="message-user"
+                onClick={() => {
+                  setEmailSubject('');
+                  setEmailBody('');
+                  setShowMessageModal(true)
+                }}  
+              >
+                <MdOutlineChat size={26} />
+                <span>Message</span>
+              </div>
               <div 
                 className="approve-user"
                 onClick={() => {

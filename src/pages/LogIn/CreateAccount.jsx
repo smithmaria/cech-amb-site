@@ -181,8 +181,13 @@ function CreateAccount() {
             URL.revokeObjectURL(formData.profilePictureURL);
           }
 
-          navigate('/');
-        } else {
+          navigate('/account-pending', { 
+            state: { 
+              accountType: accountType,
+              userEmail: formData.email 
+            }
+          });
+          } else {
           setSubmitError(result.error);
         }
       } catch (error) {

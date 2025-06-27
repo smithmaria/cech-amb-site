@@ -11,6 +11,7 @@ import Apply from './pages/Apply/Apply';
 import CreateAccount from './pages/LogIn/CreateAccount';
 import AccountInfo from './pages/AccountInfo/AccountInfo';
 import AdminLayout from './pages/Admin/AdminLayout';
+import AccountPendingApproval from './pages/LogIn/AccountPendingApproval';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/account-pending" element={<AccountPendingApproval />}/>
         
         <Route path="/*" element={
           <Layout>

@@ -21,7 +21,8 @@ const Members = () => {
         const membersQuery = query(
           membersRef,
           where('isMember', '==', true),
-          where('isExec', '==', false)
+          where('isExec', '==', false),
+          where ('isApproved', '==', true)
         );
         const membersSnapshot = await getDocs(membersQuery);
         const membersData = membersSnapshot.docs.map(doc => ({
@@ -32,7 +33,8 @@ const Members = () => {
         const execQuery = query(
           membersRef,
           where('isMember', '==', true),
-          where('isExec', '==', true)
+          where('isExec', '==', true),
+          where ('isApproved', '==', true)
         );
         const execSnapshot = await getDocs(execQuery);
         const execData = execSnapshot.docs.map(doc => ({
