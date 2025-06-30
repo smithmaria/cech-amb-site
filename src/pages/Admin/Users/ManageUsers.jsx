@@ -246,7 +246,7 @@ const ManageUsers = () => {
               >
                 {filter.label}
                 {filter.id === 'pending' && pendingCount > 0
-                  ? <span className="pending-count">{pendingCount}</span> 
+                  ? <span className="pending-count">{pendingCount}</span>
                   : null
                 }
               </div>

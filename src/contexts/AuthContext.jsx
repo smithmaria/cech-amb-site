@@ -30,7 +30,6 @@ export function AuthProvider({ children }) {
           console.error("Error fetching user profile:", error);
           setCurrentUser(user);
         }
-
       } else {
         setCurrentUser(null);
       }

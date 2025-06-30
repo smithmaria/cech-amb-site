@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '/CECH-Logo.png';
 import './Home.css';
 import ambGroup from '../../assets/images/ambassadors-group.png';
@@ -25,9 +26,9 @@ import bingo from '../../assets/images/bingo.jpg';
             Student Ambassadors create a positive and lasting impression thus enhancing the reputation of the college and university.
           </p>
           <div className='buttons'>
-            <a className='button' href='/apply'>
+            <Link className='button' to='/apply'>
               Apply
-            </a>
+            </Link>
             <a className='button' href='https://forms.office.com/Pages/ResponsePage.aspx?id=bC4i9cZf60iPA3PbGCA7Y_ItKi-BGElEjSj8Bm-kciVUNTZPRzdJSURPSjJMOTUzOENHRUhTUlhRSC4u' target='_blank' rel='noopener'>
               Request Ambassadors
             </a>

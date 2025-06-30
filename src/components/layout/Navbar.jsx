@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import './Navbar.css';
 import logo from '/CECH-Logo.png';
@@ -20,10 +21,10 @@ const Navbar = () => {
 				<div className='navbar-pages'>
 					<img src={logo} alt="Logo" className="navbar-logo" onClick={() => navigate('/')} />
 					
-					<a href="/" className={`navbar-item ${currentPath === '/' ? 'active' : ''}`}>Home</a>
-					<a href="/events" className={`navbar-item ${currentPath.startsWith('/events') ? 'active' : ''}`}>Events</a>
-					<a href="/members" className={`navbar-item ${currentPath.startsWith('/members') ? 'active' : ''}`}>Members</a>
-					<a href="/apply" className={`navbar-item ${currentPath === '/apply' ? 'active' : ''}`}>Apply</a>
+					<Link to="/" className={`navbar-item ${currentPath === '/' ? 'active' : ''}`}>Home</Link>
+					<Link to="/events" className={`navbar-item ${currentPath.startsWith('/events') ? 'active' : ''}`}>Events</Link>
+					<Link to="/members" className={`navbar-item ${currentPath.startsWith('/members') ? 'active' : ''}`}>Members</Link>
+					<Link to="/apply" className={`navbar-item ${currentPath === '/apply' ? 'active' : ''}`}>Apply</Link>
 				</div>
 				<div className='navbar-login'>
 					{currentUser ? 

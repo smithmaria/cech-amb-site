@@ -1,7 +1,7 @@
 import { MdOutlineAccountBox, MdOutlineAdminPanelSettings, MdLogout } from "react-icons/md";
 import ProfileIcon from "../ProfileIcon";
 import { logoutUser } from '../../services/userService';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SettingsModal = ({ isOpen, onClose, currentUser }) => {
   const navigate = useNavigate();
@@ -50,26 +50,28 @@ const SettingsModal = ({ isOpen, onClose, currentUser }) => {
 
         <div className="settings-modal-nav">
           <nav className="settings-modal-nav-list">
-            <a
-              href="/account"
+            <Link
+              to="/account"
               className="settings-modal-nav-link settings-modal-nav-link--account"
+              onClick={onClose}
             >
               <span className="settings-modal-nav-icon">
                 <MdOutlineAccountBox size={30}/>
               </span>
               <span className="settings-modal-nav-text">Account Info</span>
-            </a>
+            </Link>
 
             {currentUser?.isAdmin && (
-              <a
-                href="/admin"
+              <Link
+                to="/admin"
                 className="settings-modal-nav-link settings-modal-nav-link--admin"
+                onClick={onClose}
               >
                 <span className="settings-modal-nav-icon">
                   <MdOutlineAdminPanelSettings size={30} />
                 </span>
                 <span className="settings-modal-nav-text">Admin Panel</span>
-              </a>
+              </Link>
             )}
 
             <a className="settings-modal-nav-link settings-modal-nav-link--logout" onClick={handleLogout} >
